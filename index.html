@@ -1,8 +1,373 @@
 <!DOCTYPE html>
 <html>
 
-<body>
-    <h1>My First Heading</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Stem-OB: Generalizable Visual Imitation Learning with Stem-Like Convergent Observation through Diffusion Inversion">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stem-OB: Generalizable Visual Imitation Learning with Stem-Like Convergent Observation through Diffusion
+    Inversion</title>
+
+  <!-- Thumbnail for social media sharing -->
+  <meta property="og:image" content="media/figures/thumbnail.png">
+  <!-- TODO -->
+
+  <!-- Favicon -->
+  <link rel="icon" href="media/figures/thumbnail.png" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <link rel="stylesheet" href="./static/source_serif_4.css">
+  <link rel="stylesheet" href="./static/source_sans_3.css">
+  <link rel="stylesheet" href="./static/academicons.min.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/brands.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/light.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            Stem-OB: Generalizable Visual Imitation Learning with Stem-Like Convergent Observation through Diffusion
+            Inversion
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a target="_blank" href="https://hukz18.github.io/">Kaizhe Hu</a><sup>123*</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://github.com/UFishs/">Zihang Rui</a><sup>1*</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://shockwavehe.github.io/">Yao He</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://yuyaoliu.me/">Yuyao Liu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://piao-0429.github.io/">Pu Hua</a><sup>123</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="http://hxu.rocks/">Huazhe Xu</a><sup>123</sup>
+            </span>
+          </div>
+          <div class="logos">
+            <img src="./media/logos/tsinghua.png" alt="Tsinghua Logo" class="logo">
+            <img src="./media/logos/sqz.png" alt="Shanghai Qizhi Institute Logo" class="logo">
+            <img src="./media/logos/sail.png" alt="SAIL Logo" class="logo">
+            <img src="./media/logos/stanford.png" alt="Stanford Logo" class="logo">
+            <!-- Add more logos as needed -->
+          </div>
+          <div class="is-size-5 affiliation">
+            <sup>1</sup>Tsinghua University
+            <sup>2</sup>Shanghai Qizhi Institute
+            <sup>3</sup>Shanghai Artificial Intelligence Laboratory
+            <sup>4</sup>Stanford University
+            <sup></sup>
+          </div>
+          <br>
+          <div class="affiliation-note">
+            <sup>*</sup> Equal contribution
+          </div>
+          <!-- <div class="button-container">
+            <a href="./stem-ob.pdf" target="_blank" class="button"><i class="fa-light fa-file"></i>&emsp14;PDF</a>
+            <a href="https://github.com/stem-ob/stem-ob" target="_blank" class="button"><i
+                class="fa-light fa-code"></i>&emsp14;Code</a>
+          </div> -->
+          <div class="button-container">
+            <span class="link-block">
+              <a href="./stem-ob.pdf"
+                target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>PDF</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/stem-ob/stem-ob"
+                target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered  is-centered">
+          <img src="media/figures/teaser.png" class="teaser-image" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Visual imitation learning methods demonstrate strong performance, yet they lack generalization when faced
+            with visual input perturbations, including variations in lighting and textures, impeding their real-world
+            application. We propose Stem-OB that utilizes pretrained image diffusion models to suppress low-level visual
+            differences while maintaining high-level scene structures. This image inversion process is akin to
+            transforming the observation into a shared representation, from which other observations stem, with
+            extraneous details removed. Stem-OB contrasts with data-augmentation approaches as it is robust to various
+            unspecified appearance changes without the need for additional training. Our method is a simple yet highly
+            effective plug-and-play solution. Empirical results confirm the effectiveness of our approach in simulated
+            tasks and show an exceptionally significant improvement in real-world applications, with an average increase
+            of 22.2% in success rates compared to the best baseline.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rounded">
+    <div class="rows">
+      <h2 class="title is-3">Overview of Stem-OB</h2>
+      <img src="media/figures/pipeline.png" class="method-image" />
+      <p class="content has-text-justified">
+      <div class="formula">
+        <p><strong>(a)</strong> Our method has been evaluated in both real-world and simulated environments.
+          <strong>(b)</strong> The trained visual IL policies are directly applied to the original observation space \(
+          \mathcal{O} \), demonstrating robustness to unseen environmental disturbances. <strong>(c)</strong> We train
+          the visual IL policy \( \boldsymbol{\pi} \) on the diffusion-inversed latent space \(
+          \hat{\mathcal{O}}^{\hat{t}/T} \), where \( \hat{t} \) denotes a specific inversion step out of a total of \( T
+          \). Each composite rectangle in the diffusion inversion process, made up of three smaller sections, represents
+          the latent vector of an image, with finer attributes (gray) depicted as the smaller section. During the
+          inversion process, finer attributes converge earlier than coarser ones.</p>
+      </div>
+      </p>
+    </div>
+
+    <hr class="rounded">
+    <div class="rows">
+      <h2 class="title is-3">Real-World Experiments</h2>
+      <hr class="rounded">
+      <h2 class="title is-4">Experiment Setup</h2>
+      <img src="media/figures/real-world_setup_overview.png" class="method-image" />
+      <p class="content has-text-justified">
+      <div class="formula">
+        <p><strong>(a)</strong> Overview of the whole setup. <strong>(b)(c)</strong> These tasks are performed by the
+          robot in a real-world environment, from left to right: <strong><em>Cup2Plate</em></strong>, <strong><em>Turn
+              on Faucet</em></strong>, <strong><em>Open Drawer</em></strong>, and <strong><em>Duck2Bowl</em></strong>.
+          The figure showcases the initial and final states of the tasks.</p>
+      </div>
+      </p>
+      <hr class="rounded">
+      <h2 class="title is-4">Experiment Results</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <img src="media/figures/real-world_results.png" class="method-image" />
+        </div>
+      </div>
+      <p class="content has-text-justified">
+      <div class="formula">
+        <p><strong>Evaluation of real-world experiments.</strong> Train.: evaluations in the same settings as the
+          training dataset. Gen.: evaluations under different visual perturbations for generalizability analysis. All:
+          evaluations including both Train. and Gen. The tasks are <strong>C2P</strong> (<strong><em>Cup to
+              Plate</em></strong>), <strong>D2B</strong> (<strong><em>Duck to Bowl</em></strong>), <strong>OD</strong>
+          (<strong><em>Open Drawer</em></strong>), and <strong>ToF</strong> (<strong><em>Turn on Faucet</em></strong>).
+          We report the mean and standard deviation of the success rate (%) over 6 settings for each task, and the best
+          results are highlighted in <strong>bold</strong>.</p>
+      </div>
+      </p>
+
+    </div>
+
+    <hr class="rounded">
+    <div class="rows">
+      <h2 class="title is-4">Visualization</h2>
+      <h3 class="title is-5">Cup to Plate</h3>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/cup_trainW.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/cup_trainC.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/cup_cubeW.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/cup_cubeC.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/cup_leafW.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/cup_leafC.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <h3 class="title is-5">Duck to Bowl</h3>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/duck_trainW.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/duck_trainC.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/duck_redW.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/duck_redC.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/duck_blueW.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/duck_blueC.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <h3 class="title is-5">Open Drawer</h3>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/drawer_trainW.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/drawer_trainC.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/drawer_goldW.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/drawer_goldC.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/drawer_paintW.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/drawer_paintC.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <h3 class="title is-5">Turn on Faucet</h3>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/faucet_trainW.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/faucet_trainC.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/faucet_testW.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/faucet_testC.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/faucet_paintW.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="column has-text-centered">
+          <video id="dist1" controls autoplay loop muted width="100%">
+            <source src="media/videos/faucet_paintC.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
 </body>
 
 </html>
